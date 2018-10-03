@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using MangeAPI.Model.Auth;
+using MangeAPI.Model;
 
 namespace MangeAPI.Repository.IRepo
 {

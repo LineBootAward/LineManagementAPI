@@ -1,5 +1,5 @@
 ﻿using MangeAPI.Dto;
-using MangeAPI.Model.Auth;
+using MangeAPI.Model;
 using MangeAPI.Repository.Repo;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -37,6 +37,9 @@ namespace MangeAPI.Controllers
         [HttpPost]
         public async Task<IHttpActionResult> Register([FromBody]UserForRegisterDto userForRegisterDto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+          
             userForRegisterDto.Username = userForRegisterDto.Username.ToLower();
 
             if (await _repo.UserExists(userForRegisterDto.Username))

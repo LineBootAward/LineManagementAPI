@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using MangeAPI.Model.Auth;
+using MangeAPI.Model;
 using MangeAPI.Repository.DbConnFactory;
 using System.Linq;
 using System.Threading.Tasks;

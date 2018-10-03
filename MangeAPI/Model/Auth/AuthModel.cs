@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MangeAPI.Model.Auth
+namespace MangeAPI.Model
 {
     public class User
     {
         public string user_id { get; set; }
         public string username { get; set; }
-        public string password_hash { get; set; }
-        public string password_salt { get; set; }
+        public byte[] password_hash { get; set; }
+        public byte[] password_salt { get; set; }
     }
 
     public class Value

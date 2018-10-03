@@ -98,3 +98,7 @@ C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\zh-Hant\System.
 C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\System.Web.Cors.dll
 C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\Microsoft.Owin.Cors.dll
 C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\Microsoft.Owin.Cors.xml
+C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\Swashbuckle.Core.dll
+C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\WebActivatorEx.dll
+C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\Swagger.xml

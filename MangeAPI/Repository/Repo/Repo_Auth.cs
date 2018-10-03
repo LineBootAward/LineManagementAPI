@@ -1,5 +1,5 @@
 ﻿using Dapper;
-using MangeAPI.Model.Auth;
+using MangeAPI.Model;
 using MangeAPI.Repository.DbConnFactory;
 using System.Linq;
 using System.Threading.Tasks;
@@ -11,6 +11,7 @@ namespace MangeAPI.Repository.Repo
 {
     public class Repo_Auth : DbConnConfig
     {
+        
         public async Task<User> Login(string _username, string password)
         {
             using (var conn = ConnFactory.Create( _DbType, _ConnStr))
@@ -41,8 +42,8 @@ namespace MangeAPI.Repository.Repo
 
             CreatePasswordHash(password, out password_hash, out password_salt);
 
-            user.password_hash = password_hash.ToString();
-            user.password_salt = password_salt.ToString();
+            user.password_hash = password_hash;
+            user.password_salt = password_salt;
             user.user_id = Guid.NewGuid().ToString();
             using (var conn = ConnFactory.Create(_DbType, _ConnStr))
             {
@@ -76,10 +77,10 @@ namespace MangeAPI.Repository.Repo
             return false;
         }
 
-        private bool VerifyPasswordHash(string password, string passwordHash, string passwordSalt)
+        private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
-            byte[] salt = Encoding.UTF8.GetBytes(passwordSalt);
-            using (var hmac = new System.Security.Cryptography.HMACSHA512(salt))
+            //byte[] salt = Encoding.UTF8.GetBytes(passwordSalt);
+            using (var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
             {
                 var computehash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(password));
 
