@@ -16,7 +16,7 @@ namespace MangeAPI.Repository.Repo
         
         public async Task<int> GetQueueNumber(string _shop_id ,string _counter_id)
         {
-            using(var conn = ConnFactory.Create(_DbType, _ConnStr))
+            using(var conn = ConnFactory.Create(_DbType, _azConnStr))
             {
                 conn.Open();
 
@@ -39,50 +39,72 @@ namespace MangeAPI.Repository.Repo
         {
             using (var transactionScope = new TransactionScope(TransactionScopeAsyncFlowOption.Enabled))
             {
-                var Res = new
+                var cmd1 = new
+                {
+                    user_id = _user_id,
+                    shop_id = _shop_id,
+                    status = QueueTask_Status.Init.ToString(),
+                    counter_id = _counter_id
+                };
+
+                var cmd2 = new
                 {
                     shop_id = _shop_id,
                     counter_id = _counter_id
                 };
-
-                var Res_Ev = new
-                {
-                    user_id = _user_id,
-                    shop_id = _shop_id,
-                    status = QueueTask_Status.Init.ToString()
-                };
                 
-                string sqlCommand1 = @"INSERT INTO 
-                                        queueList
-                                            (user_id,shop_id,status) 
-                                        VALUES(@user_id,@shop_id,@status);";
+                string sqlCommand1 = @"INSERT INTO queueList
+                                            (user_id,shop_id,status,counter_id) 
+                                        VALUES
+                                            (@user_id,@shop_id,@status,@counter_id);";
 
-                string sqlCommand2 = @"UPDATE shop_queue_status
-                                            SET now_queue_number = now_queue_number + 1
+                string sqlCommand2 = @"UPDATE 
+                                           shop_queue_status
+                                       SET 
+                                           now_queue_number = now_queue_number + 1
                                        WHERE 
                                            shop_id = @shop_id 
-                                       AND 
+                                        AND 
                                            counter_id = @counter_id
                                         ";
 
-                string queryNumber = @"SELECT 
+                string queueNum = @"SELECT 
                                         now_queue_number 
                                       FROM 
                                         shop_queue_status 
-                                      Where shop_id = @shop_id AND counter_id = @counter_id";
+                                      Where 
+                                            shop_id = @shop_id 
+                                        AND 
+                                            counter_id = @counter_id";
+
+                string setQueueNum = @"UPDATE 
+                                           queueList
+                                       SET 
+                                           queue_number  =  @queue_number
+                                       WHERE 
+                                           shop_id = @shop_id 
+                                        AND 
+                                           user_id = @user_id
+                                        ";
                 int cmdResult;
-                using (var conn = ConnFactory.Create(_DbType, _ConnStr))
+                using (var conn = ConnFactory.Create(_DbType, _azConnStr))
                 {
                     conn.Open();
 
-                    cmdResult = await conn.ExecuteAsync(sqlCommand1,Res_Ev);
-                    var updateResult = await conn.ExecuteAsync(sqlCommand2, Res);
+                    cmdResult = await conn.ExecuteAsync(sqlCommand1, cmd1);
+                    var updateResult = await conn.ExecuteAsync(sqlCommand2, cmd2);
 
                     if(updateResult == 1)
                     {
-                        var result = await conn.QuerySingleAsync<GetQueue>(queryNumber,new {
+                        var result = await conn.QuerySingleAsync<GetQueue>(queueNum , new {
                             shop_id = _shop_id,
                             counter_id = _counter_id
+                        });
+
+                        await conn.ExecuteAsync(setQueueNum, new {
+                            queue_number = result.now_queue_number,
+                            shop_id = _shop_id,
+                            user_id = _user_id
                         });
 
                         transactionScope.Complete();

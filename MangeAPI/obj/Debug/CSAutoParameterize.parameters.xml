@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="connStr-Web.config Connection String" description="connStr 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue=" Data Source = DESKTOP-BH5VONO\SQLEXPRESS; Initial Catalog = example; User ID = wl; Password = tsai8888" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\tsai\\Desktop\\ANGULAR\\Udemy\\NgCore\\MangeAPI\\MangeAPI\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='connStr']/@connectionString" />
+  </parameter>
+  <parameter name="azConnStr-Web.config Connection String" description="azConnStr 應用程式在 web.config 中用來存取資料庫的連接字串。" defaultValue="Server=tcp:snsservice.database.windows.net,1433;Initial Catalog=snsdb;Persist Security Info=False;User ID=waynesql;Password=Tsai88888;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\tsai\\Desktop\\ANGULAR\\Udemy\\NgCore\\MangeAPI\\MangeAPI\\obj\\Debug\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='azConnStr']/@connectionString" />
+  </parameter>
+</parameters>
