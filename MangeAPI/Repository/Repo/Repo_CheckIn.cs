@@ -13,7 +13,23 @@ namespace MangeAPI.Repository.Repo
 {
     public class Repo_CheckIn : DbConnConfig
     {
-        
+        public async Task<bool> LiffUserExists(string _liff_user_id)
+        {
+            using (var conn = ConnFactory.Create(_DbType, _azConnStr))
+            {
+                conn.Open();
+
+                string sqlCmd = "SELECT username FROM account Where user_id = @user_id";
+
+                var result = await conn.QueryAsync<User>(sqlCmd, new { user_id = _liff_user_id });
+
+                if (result.Any())
+                    return true;
+            }
+
+            return false;
+        }
+
         public async Task<int> GetQueueNumber(string _shop_id ,string _counter_id)
         {
             using(var conn = ConnFactory.Create(_DbType, _azConnStr))

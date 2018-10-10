@@ -28,7 +28,6 @@ namespace MangeAPI
             //context.Response.AddHeader("Access-Control-Allow-Origin", "*");
             if (context.Request.HttpMethod == "OPTIONS")
             {
-                context.Response.AddHeader("Access-Control-Allow-Origin", "*");
                 context.Response.AddHeader("Access-Control-Allow-Headers", @"Authorization,Content-Type, 
         authorization,content-Type");
                 context.Response.AddHeader("Access-Control-Allow-Methods", "POST,GET,OPTIONS");

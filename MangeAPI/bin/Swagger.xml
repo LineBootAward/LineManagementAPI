@@ -10,7 +10,34 @@
             </summary>
             <remarks>
             自動產生的欄位。
-            若要修改，請將欄位宣告從設計工具檔案移至程式碼後置檔案。
+            若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+            </remarks>
+        </member>
+        <member name="F:MangeAPI.WebForm1.Button1">
+            <summary>
+            Button1 控制項。
+            </summary>
+            <remarks>
+            自動產生的欄位。
+            若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+            </remarks>
+        </member>
+        <member name="F:MangeAPI.WebForm1.Button2">
+            <summary>
+            Button2 控制項。
+            </summary>
+            <remarks>
+            自動產生的欄位。
+            若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
+            </remarks>
+        </member>
+        <member name="F:MangeAPI.WebForm1.Button3">
+            <summary>
+            Button3 控制項。
+            </summary>
+            <remarks>
+            自動產生的欄位。
+            若要修改，請將欄位宣告從設計工具檔案移到程式碼後置檔案。
             </remarks>
         </member>
     </members>

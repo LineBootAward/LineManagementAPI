@@ -28,7 +28,7 @@ namespace MangeAPI
             //app.UseWebApi(httpConfig);
 
             //app.Use<GlobalExceptionMiddleware>();
-            app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
+            //app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
 
             app.UseJwtBearerAuthentication(new JwtBearerAuthenticationOptions
             {

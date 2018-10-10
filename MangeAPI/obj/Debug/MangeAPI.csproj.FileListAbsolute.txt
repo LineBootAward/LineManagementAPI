@@ -104,3 +104,5 @@ C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\WebActivatorEx.
 C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\System.Web.Http.Cors.dll
 C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\System.Web.Http.Cors.xml
 C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\Swagger.xml
+C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\LineBot.dll
+C:\Users\tsai\Desktop\ANGULAR\Udemy\NgCore\MangeAPI\MangeAPI\bin\LineBot.xml

@@ -12,6 +12,7 @@ namespace MangeAPI.Repository
 
     public enum QueueTask_Status
     {
-        Init
+        Init,
+        Complete
     }
 }

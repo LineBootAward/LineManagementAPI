@@ -1,4 +1,5 @@
 ﻿using MangeAPI.Repository.Repo;
+using MangeAPI.Model.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,8 @@ using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Cors;
+using Newtonsoft.Json;
+using System.Configuration;
 
 namespace MangeAPI.Controllers
 {
@@ -16,10 +19,12 @@ namespace MangeAPI.Controllers
     {
 
         private readonly Repo_CheckIn _repo;
+        private readonly Repo_QueueManage _repo_QM;
 
         public QueueNumberController()
         {
             _repo = new Repo_CheckIn();
+            _repo_QM = new Repo_QueueManage();
         }
 
         // GET api/<controller>
@@ -49,6 +54,7 @@ namespace MangeAPI.Controllers
             public string shop_id { get; set; }
             public string counter_id { get; set; }
         }
+  
         [Route("api/QueueNumber/AddCustomerInQueue")]
         [HttpPost]
         public async Task<int> AddCustomerInQueue([FromBody]AddInQueue addInQueue)
