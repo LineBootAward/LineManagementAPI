@@ -118,21 +118,6 @@ namespace MangeAPI
                     ""layout"": ""vertical"",
                     ""spacing"": ""sm"",
                     ""contents"": [
-                        {
-                            ""type"": ""box"",
-                            ""layout"": ""baseline"",
-                            ""spacing"": ""sm"",
-                            ""contents"": [
-                              {
-                                ""type"": ""text"",
-                                ""text"": """ + qItem.shop_name.ToString() + @""",
-                                ""color"": ""#666666"",
-                                ""size"": ""lg"",
-                                ""flex"": 1,
-                                ""align"": ""center""
-                              }
-                            ]
-                          },
                           {
                             ""type"": ""box"",
                             ""layout"": ""baseline"",
@@ -141,7 +126,6 @@ namespace MangeAPI
                                 ""type"": ""text"",
                                 ""text"": """ + qItem.queue_number.ToString() + @"號"",
                                 ""wrap"": true,
-                                ""weight"": ""bold"",
                                 ""size"": ""xxl"",
                                 ""flex"": 1,
                                 ""align"": ""center""
@@ -149,16 +133,17 @@ namespace MangeAPI
                             ]
                           },
                           {
+                            ""margin"": ""xl"",
                             ""type"": ""text"",
                             ""text"": """ + qItem.display_name.ToString() + @""",
                             ""wrap"": true,
-                            ""weight"": ""bold"",
                             ""size"": ""xl"",
                             ""align"": ""center""
                           },
                           {
+                            ""margin"": ""xl"",
                             ""type"": ""text"",
-                            ""text"": ""服務已經完成"",
+                            ""text"": ""It is your turn!!"",
                             ""wrap"": true,
                             ""weight"": ""bold"",
                             ""size"": ""xl"",
@@ -170,11 +155,82 @@ namespace MangeAPI
                           },
                           {
                             ""type"": ""button"",
-                            ""style"": ""secondary"",
                             ""action"": {
                               ""type"": ""message"",
-                              ""label"": ""我知道了"",
-                              ""text"": ""已讀""
+                              ""label"": ""Confirm"",
+                              ""text"": ""@已讀F""
+                            }
+                          }
+                        ]
+                      }
+            }
+
+            }]";
+
+            return jstr;
+        }
+
+        public static string CompleteFlexMessageTwo(TaskComplete qItem)
+        {
+
+            string jstr = @"[{
+               ""type"": ""flex"",
+                              ""altText"": ""您的號碼是 " + qItem.queue_number.ToString() + @" 號"",
+                              ""contents"": {
+                  ""type"": ""bubble"",
+                  ""hero"": {
+                            ""type"": ""image"",
+                    ""size"": ""full"",
+                    ""aspectRatio"": ""2:1"",
+                    ""aspectMode"": ""cover"",
+                    ""url"": ""https://mangeapi.azurewebsites.net/image/ScanQ_Welcome_bg.png""
+                  },
+                  ""body"": {
+                            ""type"": ""box"",
+                    ""layout"": ""vertical"",
+                    ""spacing"": ""sm"",
+                    ""contents"": [
+                          {
+                            ""type"": ""box"",
+                            ""layout"": ""baseline"",
+                            ""contents"": [
+                              {
+                                ""type"": ""text"",
+                                ""text"": """ + qItem.queue_number.ToString() + @"號"",
+                                ""wrap"": true,
+                                ""size"": ""xxl"",
+                                ""flex"": 1,
+                                ""align"": ""center""
+                              }
+                            ]
+                          },
+                          {
+                            ""margin"": ""xl"",
+                            ""type"": ""text"",
+                            ""text"": """ + qItem.display_name.ToString() + @""",
+                            ""wrap"": true,
+                            ""size"": ""xl"",
+                            ""align"": ""center""
+                          },
+                          {
+                            ""margin"": ""xl"",
+                            ""type"": ""text"",
+                            ""text"": ""It is your turn!!"",
+                            ""wrap"": true,
+                            ""weight"": ""bold"",
+                            ""size"": ""xl"",
+                            ""align"": ""center""
+                          },
+                          {
+                            ""type"": ""separator"",
+                            ""margin"": ""xxl""
+                          },
+                          {
+                            ""type"": ""button"",
+                            ""action"": {
+                              ""type"": ""message"",
+                              ""label"": ""Confirm"",
+                              ""text"": ""@已讀F""
                             }
                           }
                         ]
@@ -190,9 +246,9 @@ namespace MangeAPI
         {
 
             string jstr = @"[{
-               ""type"": ""flex"",
-                              ""altText"": ""Your Queue Number is" + qItem.queue_number.ToString() + @" 號"",
-                              ""contents"": {
+                ""type"": ""flex"",
+                ""altText"": ""Your Queue Number is" + qItem.queue_number.ToString() + @" 號"",
+                ""contents"": {
                   ""type"": ""bubble"",
                   ""hero"": {
                             ""type"": ""image"",
@@ -225,11 +281,12 @@ namespace MangeAPI
                           },
                           {
                             ""type"": ""box"",
+                            ""margin"": ""xl"",
                             ""layout"": ""baseline"",
                             ""contents"": [
                               {
                                 ""type"": ""text"",
-                                ""text"": """ + qItem.queue_number.ToString() + @""",
+                                ""text"": """ + qItem.queue_number.ToString() + @"號"",
                                 ""wrap"": true,
                                 ""weight"": ""bold"",
                                 ""size"": ""xxl"",

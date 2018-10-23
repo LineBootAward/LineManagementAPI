@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Threading;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -21,7 +22,10 @@ namespace MangeAPI
         protected void Button1_Click(object sender, EventArgs e)
         {
             Bot bot = new Bot(channelAccessToken);
-
+            //Thread thread = new Thread(() => {
+            //    Thread.Sleep(2000);
+            //    bot.PushMessage("Ucf64da86af345f8a009970a62e24763a", "Message after 2 second");
+            //});
             //按下我知道了按鈕
             bot.PushMessage("Ucf64da86af345f8a009970a62e24763a", 1, 2);
             bot.PushMessage("Ucf64da86af345f8a009970a62e24763a", "客人名稱，服務完成後，我們會再發送通知");
@@ -32,6 +36,9 @@ namespace MangeAPI
 
             //按下我知道了按鈕
             bot.PushMessage("Ucf64da86af345f8a009970a62e24763a", "Have a nice day!  客人名稱");
+
+            Thread.Sleep(2000); //Delay 1秒
+            bot.PushMessage("Ucf64da86af345f8a009970a62e24763a", "Message after 2 second");
         }
 
         protected void Button2_Click(object sender, EventArgs e)

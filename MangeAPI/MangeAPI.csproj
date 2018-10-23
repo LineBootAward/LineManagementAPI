@@ -163,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Image\LiffQRCode.png" />
     <Content Include="Image\ScanQ_Welcome.png" />
     <Content Include="Image\ScanQ_Welcome_1.png" />
     <Content Include="Image\ScanQ_Welcome_2.png" />
@@ -177,6 +178,7 @@
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\LiffTestController.cs" />
     <Compile Include="Controllers\PushMessageController.cs" />
+    <Compile Include="Controllers\QueueController.cs" />
     <Compile Include="Controllers\QueueManageController.cs" />
     <Compile Include="Controllers\QueueNumberController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -195,6 +197,7 @@
     <Compile Include="Repository\Repo\Repo_Auth.cs" />
     <Compile Include="Repository\Repo\Repo_CheckIn.cs" />
     <Compile Include="Repository\Repo\Repo_LiffTest.cs" />
+    <Compile Include="Repository\Repo\Repo_Queue.cs" />
     <Compile Include="Repository\Repo\Repo_QueueManage.cs" />
     <Compile Include="Repository\Repo_Enum.cs" />
     <Compile Include="Startup.cs" />

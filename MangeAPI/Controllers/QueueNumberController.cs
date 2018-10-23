@@ -55,13 +55,13 @@ namespace MangeAPI.Controllers
             public string counter_id { get; set; }
         }
   
-        [Route("api/QueueNumber/AddCustomerInQueue")]
-        [HttpPost]
-        public async Task<int> AddCustomerInQueue([FromBody]AddInQueue addInQueue)
-        {
-            var task =  await _repo.SetReservation(addInQueue.user_id,addInQueue.shop_id, addInQueue.counter_id);
-            return task;
-        }
+        //[Route("api/QueueNumber/AddCustomerInQueue")]
+        //[HttpPost]
+        //public async Task<int> AddCustomerInQueue([FromBody]AddInQueue addInQueue)
+        //{
+        //    var task =  await _repo.SetReservation(addInQueue.user_id,addInQueue.shop_id, addInQueue.counter_id);
+        //    return task;
+        //}
 
         // DELETE api/<controller>/5
         public void Delete(int id)
